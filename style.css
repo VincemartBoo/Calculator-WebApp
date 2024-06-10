@@ -1,0 +1,306 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: sans-serif;
+}
+
+body {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background: url(images/h.jpg);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.app {
+  position: relative;
+}
+
+/* ---------- header section ---------- */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+header img {
+  /* box-shadow: 0px 0px 6px; */
+  border: 1px solid rgba(0, 0, 0, 0.9);
+  border-radius: 20%;
+  width: 34.64px;
+  /* width: 1.7vw; */
+  cursor: pointer;
+}
+
+.header {
+  padding: .7rem;
+}
+
+.txt-logo {
+  text-decoration: none;
+  text-shadow: 1.3px 1.3px rgba(0, 0, 0, 0.9);
+  color: #18B4FE;
+  display: flex;
+  justify-content: center;
+  padding-left: .6rem;
+  font-size: 2rem;
+  font-family: Orbitron;
+  font-weight: 700;
+}
+
+
+/* ---------- main section ---------- */
+.calculator {
+  background: rgba(0, 0, 0, 0.9);
+  width: 23.4rem;
+  height: 40rem;
+  display: flex;
+  flex-direction: column;
+  border: .25rem solid rgba(0, 0, 0, 0.9);
+  border-radius: 1.5rem;
+  overflow: hidden;
+}
+
+.display {
+  min-height: 12.5rem;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  color: white;
+  text-align: right;
+  flex: 1 1 0%;
+}
+
+.display .input {
+  font-size: 1.4rem;
+  margin-bottom: .5rem;
+}
+
+.display .output {
+  font-size: 2rem;
+  font-weight: 600;
+  width: 100%;
+  max-width: 100%;
+}
+
+.keys {
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-gap: 1rem;
+}
+
+.keys .key {
+  position: relative;
+  cursor: pointer;
+  color: #18B4FE;
+  box-shadow: 0px 0px 4px;
+  display: block;
+  height: 0;
+  padding-top: 90%;
+  background-color: rgba(65, 61, 61, 0.87);
+  border-radius: 1rem;
+  transition: 0.2s;
+  user-select: none;
+}
+
+.keys .key.operator {
+  background-color: #18B4FE;
+}
+
+.keys .key.action {
+  background-color: #6f7375;
+}
+
+.keys .key span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.keys .key:hover {
+  box-shadow: inset 0px 0px 8px;
+}
+
+.keys .key.operator span,
+.keys .key.action span{
+  color: white;
+}
+
+
+/* ---------- theme toggler ---------- */
+.theme-toggler {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  font-size: 1.25rem;
+  color: white;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.theme-toggler.active::before {
+  background-color: white;
+}
+
+.theme-toggler::before {
+  content: '';
+  height: 1.8rem;
+  width: 1.8rem;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 3px solid #18B4FE;
+  background-color: #000000;
+  z-index: -1;
+}
+
+
+/* ---------- Light mode ---------- */
+.calculator {
+  border: .25rem solid #eff0f3d5;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.calculator .display {
+  color: black;
+}
+
+.calculator .keys .key {
+  color: #18B4FE;
+  background-color: rgba(248, 244, 244, 0.551);
+  box-shadow: 0px 0px 4px;
+}
+
+.calculator .keys .key:hover {
+  box-shadow: inset 0px 0px 8px;
+}
+
+.calculator .keys .key.operator {
+  background-color: #18B4FE;
+}
+
+.calculator .keys .key.action {
+  background-color: #6f7375;
+}
+
+.calculator .keys .key.operator span {
+  color: white;
+}
+
+.calculator .keys .key.action span{
+  color: #18B4FE;
+}
+
+
+/* ---------- Dark mode ---------- */
+.calculator.dark {
+  border: .25rem solid rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.calculator.dark .display {
+  color: white;
+}
+
+.calculator.dark .keys .key {
+  color: #18B4FE;
+  background-color: rgba(65, 61, 61, 0.87);
+}
+
+.calculator.dark .keys .key.operator {
+  background-color: #18B4FE;
+}
+
+.calculator.dark .keys .key.action {
+  background-color: #6f7375;
+}
+
+
+.calculator.dark .keys .key.operator:hover {
+  box-shadow: inset 0px 0px 8px white;
+}
+
+.calculator.dark .keys .key.operator span,
+.calculator.dark .keys .key.action span{
+  color: white;
+}
+
+
+/* ---------- footer design ---------- */
+.footer {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: center; 
+  width: 100%;
+  color: white;
+  background-color: transparent;
+  backdrop-filter: blur(20px);
+  border: rgba(255, 255, 255, .2);
+  padding: .5rem 1rem;
+}
+
+.footer-text p {
+  font-size: .8rem;
+}
+
+
+/* ---------- CSS Breakpoints ---------- */
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 410px) {
+  .calculator,
+  .calculator.dark {
+    width: 18.75rem;
+    height: 34.5rem;
+  }
+
+  .keys .key span {
+    font-size: 1.4rem;
+  }
+
+  .footer-text p {
+    font-size: .73rem;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-height: 720px) {
+  .calculator,
+  .calculator.dark {
+    width: 17.75rem;
+    height: 32.5rem;
+  }
+
+  .keys .key span {
+    font-size: 1.2rem;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+/* @media only screen and (min-width: 768px) {} */
+
+/* Large devices (laptops/desktops, 992px and up) */
+/* @media only screen and (min-width: 992px) {} */
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* @media only screen and (min-width: 1200px) {} */
